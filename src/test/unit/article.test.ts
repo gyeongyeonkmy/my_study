@@ -1,5 +1,5 @@
-import { createApp } from '../app';
-import { prismaClient } from '../lib/prismaClient';
+import { createApp } from '../../app';
+import { prismaClient } from '../../lib/prismaClient';
 import request from 'supertest';
 
 const app = createApp();

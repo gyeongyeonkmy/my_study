@@ -1,10 +1,10 @@
-import ForbiddenError from '../lib/errors/ForbiddenError';
-import NotFoundError from '../lib/errors/NotFoundError';
-import * as productsService from '../services/productsService';
-import * as productsRepository from '../repositories/productsRepository';
-import * as favoritesRepository from '../repositories/favoritesRepository';
-import * as notificationsService from '../services/notificationsService';
-import { NotificationType } from '../types/Notification';
+import ForbiddenError from '../../lib/errors/ForbiddenError';
+import NotFoundError from '../../lib/errors/NotFoundError';
+import * as productsService from '../../services/productsService';
+import * as productsRepository from '../../repositories/productsRepository';
+import * as favoritesRepository from '../../repositories/favoritesRepository';
+import * as notificationsService from '../../services/notificationsService';
+import { NotificationType } from '../../types/Notification';
 
 jest.mock('../repositories/productsRepository');
 jest.mock('../repositories/favoritesRepository');

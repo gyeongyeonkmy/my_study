@@ -1,8 +1,8 @@
 import request from 'supertest';
 import bcrypt from 'bcrypt';
-import { createApp } from '../app';
-import { prismaClient } from '../lib/prismaClient';
-import { ACCESS_TOKEN_COOKIE_NAME, REFRESH_TOKEN_COOKIE_NAME } from '../lib/constants';
+import { createApp } from '../../app';
+import { prismaClient } from '../../lib/prismaClient';
+import { ACCESS_TOKEN_COOKIE_NAME, REFRESH_TOKEN_COOKIE_NAME } from '../../lib/constants';
 
 const app = createApp();
 
