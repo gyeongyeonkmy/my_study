@@ -13,24 +13,23 @@ import { defaultNotFoundHandler, globalErrorHandler } from './controllers/errorC
 import notificationsRouter from './routers/notificationsRouter';
 
 export function createApp() {
+  const app = express();
 
-const app = express();
+  app.use(cors());
+  app.use(express.json());
+  app.use(cookieParser());
+  app.use(STATIC_PATH, express.static(path.resolve(process.cwd(), PUBLIC_PATH)));
 
-app.use(cors());
-app.use(express.json());
-app.use(cookieParser());
-app.use(STATIC_PATH, express.static(path.resolve(process.cwd(), PUBLIC_PATH)));
+  app.use('/articles', articlesRouter);
+  app.use('/products', productsRouter);
+  app.use('/comments', commentsRouter);
+  app.use('/images', imagesRouter);
+  app.use('/auth', authRouter);
+  app.use('/users', usersRouter);
+  app.use('/notifications', notificationsRouter);
 
-app.use('/articles', articlesRouter);
-app.use('/products', productsRouter);
-app.use('/comments', commentsRouter);
-app.use('/images', imagesRouter);
-app.use('/auth', authRouter);
-app.use('/users', usersRouter);
-app.use('/notifications', notificationsRouter);
-
-app.use(defaultNotFoundHandler);
-app.use(globalErrorHandler);
+  app.use(defaultNotFoundHandler);
+  app.use(globalErrorHandler);
 
   return app;
 }

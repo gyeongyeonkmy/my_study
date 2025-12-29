@@ -1,4 +1,4 @@
-import type { Config } from 'jest'
+import type { Config } from 'jest';
 
 const config: Config = {
   preset: 'ts-jest',
@@ -6,6 +6,6 @@ const config: Config = {
   roots: ['<rootDir>/src/test'],
   clearMocks: true,
   setupFilesAfterEnv: ['<rootDir>/src/test/setup.ts'],
-}
+};
 
-export default config
+export default config;

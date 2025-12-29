@@ -61,10 +61,11 @@ export async function getMyFavoriteList(req: Request, res: Response) {
 
 export async function getMyNotifications(req: Request, res: Response) {
   const { cursor, limit } = create(req.query, GetMyNotificationsParamsStruct);
-  const { list, totalCount, unreadCount, nextCursor } = await notificationsService.getMyNotifications(req.user.id, {
-    cursor,
-    limit,
-  });
+  const { list, totalCount, unreadCount, nextCursor } =
+    await notificationsService.getMyNotifications(req.user.id, {
+      cursor,
+      limit,
+    });
 
   res.send({
     list,

@@ -25,7 +25,8 @@ export async function logout(req: Request, res: Response) {
 
 export async function refreshToken(req: Request, res: Response) {
   const refreshToken = req.cookies[REFRESH_TOKEN_COOKIE_NAME];
-  const { accessToken, refreshToken: newRefreshToken } = await authService.refreshToken(refreshToken);
+  const { accessToken, refreshToken: newRefreshToken } =
+    await authService.refreshToken(refreshToken);
   setTokenCookies(res, accessToken, newRefreshToken);
   res.status(200).send();
 }

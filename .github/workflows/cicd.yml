@@ -2,9 +2,9 @@ name: ci/cd
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ['main']
   push:
-    branches: ["test-main"]
+    branches: ['test-main']
 
 jobs:
   ci:
@@ -16,8 +16,8 @@ jobs:
       - name: install node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "lts/*"
-          cache: "npm"
+          node-version: 'lts/*'
+          cache: 'npm'
 
       - name: install dependencies
         run: npm ci
