@@ -16,8 +16,8 @@ services:
 
   redis:
     image: redis:alpine
-    restart: "always"
+    restart: 'always'
     networks:
       - codeit-network
     expose:
-      - "6379"
+      - '6379'
