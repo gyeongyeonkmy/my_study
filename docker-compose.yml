@@ -1,22 +1,23 @@
+networks:
+  codeit-network:
+    driver: bridge
+
 services:
-  # redis:
-  #   image: redis:alpine
-  #   ports:
-  #     - 6379:6379
-  #   restart: "always"
-  #   networks:
-  #     - my-virtual-network
   server:
-    # depends_on:
-    #   - redis
-    image: ad1cfeafe8db
-    pull_policy: never
-    ports:
-      - 80:4000
+    depends_on:
+      - redis
+    image: ${ECR_SERVER_URI}:latest
     restart: always
     networks:
-      - my-virtual-network
+      - codeit-network
+    ports:
+      - 80:4000
+      - 443:4000
 
-networks:
-  my-virtual-network:
-    driver: bridge
+  redis:
+    image: redis:alpine
+    restart: "always"
+    networks:
+      - codeit-network
+    expose:
+      - "6379"
